@@ -67,10 +67,10 @@ def loop():
     #  'uid' will be populated with the UID, and uidLength will indicate
     #  if the uid is 4 bytes (Mifare Classic) or 7 bytes (Mifare Ultralight)
     success, uid = nfc.readPassiveTargetID(pn532.PN532_MIFARE_ISO14443A_106KBPS)
-    print(success)
-    print(uid)
 
     if (success):
+        print(success)
+        print(uid)
         #  Display some basic information about the card
         print("Found an ISO14443A card")
         print("UID Length: {:d}".format(len(uid)))
