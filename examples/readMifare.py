@@ -35,7 +35,7 @@ if SPI:
     nfc = Pn532(PN532_SPI)
 # When the number after #elif set as 1, it will be switch to HSU Mode
 elif HSU:
-    PN532_HSU = Pn532Hsu(Pn532Hsu.RPI_MINI_UART)
+    PN532_HSU = Pn532Hsu('/dev/ttyUSB0')
     nfc = Pn532(PN532_HSU)
 
 # When the number after #if & #elif set as 0, it will be switch to I2C Mode
