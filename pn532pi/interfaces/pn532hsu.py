@@ -10,7 +10,7 @@ PN532_WAKEUP = bytearray([0x55, 0x00, 0x00, 0x55])
 class Pn532Hsu(Pn532Interface):
 
     def __init__(self, port: str):
-        self._serial = Serial(port, baudrate=115200, timeout=100)
+        self._serial = Serial(port, baudrate=115200, timeout=300)
         self._serial.close()
         self.command = 0
     
