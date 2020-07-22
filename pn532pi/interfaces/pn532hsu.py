@@ -8,12 +8,9 @@ from pn532pi.nfc.pn532_log import DMSG, DMSG_HEX
 PN532_WAKEUP = bytearray([0x55, 0x00, 0x00, 0x55])
 
 class Pn532Hsu(Pn532Interface):
-    RPI_MINI_UART = 0
-    RPI_PL011 = 1
 
-    def __init__(self, port: int):
-        assert port in [self.RPI_MINI_UART, self.RPI_PL011], 'Invalid RPI UART port %d' % port
-        self._serial = Serial('/dev/serial' + str(port), baudrate=115200, timeout=100)
+    def __init__(self, port: str):
+        self._serial = Serial(port, baudrate=115200, timeout=100)
         self._serial.close()
         self.command = 0
     
